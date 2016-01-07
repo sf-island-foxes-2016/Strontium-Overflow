@@ -26,7 +26,7 @@ end
 
 put '/questions/:id' do # put update form to perform update
   @question = Question.find(params[:id])
-  @question.update_attributes(params[:question]
+  @question.update_attributes(params[:question])
   redirect "/questions/:#{@question.id}"
 end
 
