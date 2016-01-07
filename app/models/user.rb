@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def password=(new_password)
     @password = BCrypt::Password.create(new_password)
-    self.encrypted_password = @password
+    self.password_hash = @password
   end
 
   def authenticate(password)
