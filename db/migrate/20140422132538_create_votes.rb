@@ -1,8 +1,10 @@
 class CreateVotes < ActiveRecord::Migration
   def change
     create_table :votes do |t|
-      t.integer :value
-      t.belongs_to :post
+      t.boolean :approval
+      t.belongs_to :user
+
+      t.timestamps(null: false)
     end
   end
 end
