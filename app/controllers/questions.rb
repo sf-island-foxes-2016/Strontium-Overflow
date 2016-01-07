@@ -1,7 +1,6 @@
 get '/questions' do #list all
   @questions = Question.all
   erb :questions_show
-  erb :index
 end
 
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
