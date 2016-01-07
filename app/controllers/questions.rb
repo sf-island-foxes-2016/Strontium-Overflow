@@ -1,4 +1,5 @@
 get '/questions' do #list all
+  @posts = Post.all
   erb :questions_show
 end
 
@@ -7,21 +8,28 @@ get '/questions/new' do #get create form (must precede the /:id route which will
 end
 
 get '/questions/:id' do #list one
+  @question = Question.find(params[:id])
   erb :question_show_one
 end
 
 post '/questions' do #post create form to perform create
-
-  redirect '/questions/:id' #need to code how to get back to this question
+  @question=Question.create(
+    title = params[:title]
+    text = params[:text]
+    user_id = 3 #need current user from session
+    )
+  redirect "/questions/:#{@question.id}"
 end
 
 get '/questions/:id/edit' do # get update form
-  # need id via params
+  @question = Question.find(params[:id])
   erb :question_update
 end
 
 put '/questions/:id' do # put update form to perform update
-
-  redirect '/questions/:id' #need to code how to get back to this question
+  @question = Question.find(params[:id])
+  @question.title = (params[:title])
+  @question.text = (params[:text])
+  redirect "/questions/:#{@question.id}"
 end
 
