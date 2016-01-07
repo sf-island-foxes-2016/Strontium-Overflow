@@ -1,9 +1,10 @@
+
 get '/users/new' do #get create form
   erb :user_create
 end
 
 post '/users' do #post create form to perform create
-    @user = User.new(name: params[:name], email: params[:email])
+    @user = User.new(params[:user])
     @user.password = params[:password]
     if @user.save!
       "#{@user.name} with email address #{@user.email} has been successfully registered."

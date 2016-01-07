@@ -16,6 +16,6 @@ end
 
 put '/comments/:id' do # put update form to perform update
   @comment = Comment.find(params[:id])
-  @comment.update_attributes(params[:comment]
+  @comment.update_attributes(params[:comment])
   redirect "/questions/:#{comment.question_id}"
 end

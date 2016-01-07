@@ -1,0 +1,12 @@
+<h1>Update a question</h1>
+
+<form method="post" action="/questions">
+<input type="hidden" name="_method" value="put">
+  <label for="question_title_input">
+  <input id="question_title_input" name="questions[title]" type="text" placeholder="Title">
+  <br>
+  <label for="question_text_input">
+  <input id="question_text_input" name="question[text]" type="text" placeholder="Text">
+  <br>
+  <input type="submit" value="Update your question!">
+</form>

@@ -1,0 +1,15 @@
+<h1>New User</h1>
+
+<form method="post" action="/users">
+<input type="hidden" name="_method" value="post">
+  <label for="user_name_input">
+  <input id="user_name_input" name="user[name]" type="text" placeholder="Name">
+  <br>
+  <label for="user_email_input">
+  <input id="user_email_input" name="user[email]" type="text" placeholder="Email">
+  <br>
+  <label for="user_password_input">
+  <input id="user_password_input" name="user[password]" type="text" placeholder="Password">
+  <br>
+  <input type="submit" value="Create a new user!">
+</form>
