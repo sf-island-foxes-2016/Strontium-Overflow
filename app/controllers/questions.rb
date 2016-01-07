@@ -1,6 +1,7 @@
 get '/questions' do #list all
-  @posts = Post.all
+  @questions = Question.all
   erb :questions_show
+  erb :index
 end
 
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
@@ -13,9 +14,9 @@ get '/questions/:id' do #list one
 end
 
 post '/questions' do #post create form to perform create
-  @question=Question.create(
-    title = params[:title]
-    text = params[:text]
+  @question = Question.create(
+    title = params[:title],
+    text = params[:text],
     user_id = 3 #need current user from session
     )
   redirect "/questions/:#{@question.id}"
