@@ -13,11 +13,9 @@ get '/questions/:id' do #list one
 end
 
 post '/questions' do #post create form to perform create
-  @question = Question.create(
-    title = params[:title],
-    text = params[:text],
-    user_id = 3 #need current user from session
-    )
+  @question = Question.new(params[:question])
+  @question.user_id = session[:user_id]
+  @question.save
   redirect "/questions/:#{@question.id}"
 end
 
@@ -28,8 +26,7 @@ end
 
 put '/questions/:id' do # put update form to perform update
   @question = Question.find(params[:id])
-  @question.title = (params[:title])
-  @question.text = (params[:text])
+  @question.update_attributes(params[:question]
   redirect "/questions/:#{@question.id}"
 end
 
