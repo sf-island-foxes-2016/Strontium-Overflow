@@ -15,7 +15,7 @@ end
 post '/questions' do #post create form to perform create
   @question = Question.new(params[:question])
   @question.save
-  redirect "/questions/:#{@question.id}"
+  redirect "/questions/#{@question.id}"
 end
 
 get '/questions/:id/edit' do # get update form
