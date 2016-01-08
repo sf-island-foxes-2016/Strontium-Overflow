@@ -1,5 +1,5 @@
 get '/users/new' do #get create form
-  erb :'user/create'
+  erb :'user/new'
 end
 
 post '/users' do #post create form to perform create

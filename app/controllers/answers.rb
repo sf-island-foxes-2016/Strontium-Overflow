@@ -1,6 +1,6 @@
 get '/answers/new/question/:id' do #get create form
   @question = Question.find(params[:id])
-  erb :'answer/create'
+  erb :'answer/new'
 end
 
 post '/answers' do #post create form to perform create
@@ -17,7 +17,7 @@ end
 
 get '/answers/:id/edit' do # get update form
   @answer = Answer.find(params[:id])
-  erb :'answer/update'
+  erb :'answer/edit'
 end
 
 put '/answers/:id' do # put update form to perform update
