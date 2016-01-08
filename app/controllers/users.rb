@@ -20,8 +20,8 @@ get '/users/login' do
 end
 
 post '/users/login' do
-  user = User.find_by(email: params[:email])
-  if user.authenticate(password_hash: params[:password])
+  user = User.find_by(params[:email])
+  if user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect '/questions'
   else
