@@ -1,21 +1,21 @@
 get '/users/new' do #get create form
-  erb :user_create
+  erb :'user/create'
 end
 
 post '/users' do #post create form to perform create
     @user = User.new(params[:user])
     @user.password = params[:password]
-    if @user.save!
-      session[:user_id] = @user.id
-      # "#{@user.name} with email address #{@user.email} has been successfully registered."
-    redirect '/'
-    else
-      "Sorry, the system could not register this account."
+    begin
+      @user.save!
+      rescue
+      redirect '/users/new'
     end
+    session[:user_id] = @user.id
+    redirect '/'
 end
 
 get '/users/login' do
-  erb :user_login
+  erb :'user/login'
 end
 
 post '/users/login' do
@@ -24,7 +24,7 @@ post '/users/login' do
     session[:user_id] = user.id
     redirect '/questions'
   else
-    erb :user_login
+    redirect '/users/login'
   end
 end
 
@@ -37,7 +37,7 @@ end
 get '/users/:id/edit' do # get update form
   redirect '/users/login' unless session[:user_id]
   # need id via params
-  erb :user_update
+  erb :'user/update'
 end
 
 put '/users/:id' do # put update form to perform update

@@ -1,17 +1,15 @@
 get '/questions' do #list all
   @questions = Question.all
-  erb :questions_show
+  erb :'question/show'
 end
-
 
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
-  erb :question_create
+  erb :'question/create'
 end
-
 
 get '/questions/:id' do #list one
   @question = Question.find(params[:id])
-  erb :question_show_one
+  erb :'question/show_one'
 end
 
 post '/questions' do #post create form to perform create
@@ -22,12 +20,12 @@ end
 
 get '/questions/:id/edit' do # get update form
   @question = Question.find(params[:id])
-  erb :question_update
+  erb :'question/update'
 end
 
 put '/questions/:id' do # put update form to perform update
   @question = Question.find(params[:id])
   @question.update_attributes(params[:question])
-  redirect "/questions/:#{@question.id}"
+  redirect "/questions/#{@question.id}"
 end
 
