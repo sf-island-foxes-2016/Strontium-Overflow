@@ -1,6 +1,19 @@
-<div class = "question">
-  <h1><%= question.title %></h1>
-  <p><%= question.text %></p>
+<div class='row col-md-12'>
+  <div class ="question row col-md-12">
+    <h1><%= question.title %></h1>
+    <div class='vote-with-arrows col-md-1'>
+      <i class='glyphicon glyphicon-triangle-top'></i>
+      <br>
+        <span>0</span>
+      <br>
+      <i class='glyphicon glyphicon-triangle-bottom'></i>
+    </div>
+    <div class='question-info col-md-4'>
+      <p><%= question.text %></p>
+    </div>
+  </div>
+</div>
+<div class='user-actions row col-md-12'>
   <p><a href='/questions/<%= question.id %>/edit'>Edit this question</a></p>
   <p><a href='/answers/new/question/<%= question.id %>'>Answer this question</a></p>
   <p><a href='/comments/new/question/<%= question.id %>'>Comment on this question</a></p>
