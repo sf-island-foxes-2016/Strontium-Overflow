@@ -3,9 +3,11 @@ get '/questions' do #list all
   erb :questions_show
 end
 
+
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
   erb :question_create
 end
+
 
 get '/questions/:id' do #list one
   @question = Question.find(params[:id])
@@ -14,7 +16,6 @@ end
 
 post '/questions' do #post create form to perform create
   @question = Question.new(params[:question])
-  @question.user_id = session[:user_id]
   @question.save
   redirect "/questions/:#{@question.id}"
 end
