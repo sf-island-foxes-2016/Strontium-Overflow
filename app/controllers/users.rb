@@ -3,12 +3,10 @@ get '/users/new' do #get create form
 end
 
 post '/users' do #post create form to perform create
-    @user = User.new(params[:user])
+    @user = User.new(name: params[:name], email: params[:email])
     @user.password = params[:password]
-    begin
-      @user.save!
-      rescue
-      redirect '/users/new'
+    if @user.save!
+      "You successfully created an account"
     end
     session[:user_id] = @user.id
     redirect '/'
@@ -18,13 +16,19 @@ get '/users/login' do
   erb :'user/login'
 end
 
+get '/users/login/1' do
+  @error_true = true
+  erb :'user/login'
+end
+
 post '/users/login' do
-  user = User.find_by(params[:email])
-  if user.authenticate(params[:password_plaintext]) #plaintext added by nil to fix a bug in his work
+  user = User.find_by(email: params[:email])
+  if user && user.password == (params[:password])
     session[:user_id] = user.id
+    "You are logged in."
     redirect '/questions'
   else
-    redirect '/users/login'
+    redirect '/users/login/1'
   end
 end
 
