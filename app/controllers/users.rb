@@ -29,6 +29,11 @@ get '/users/login/1' do
   erb :'user/login'
 end
 
+get '/users/login/2' do
+  @error_no_right_to_post = true
+  erb :'user/login'
+end
+
 post '/users/login' do
   user = User.find_by(email: params[:email])
   if user && user.password == (params[:password])
