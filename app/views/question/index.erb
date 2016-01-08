@@ -37,18 +37,18 @@
 </div>
 
 <div class='question-list col-md-12 col-md-offset-1'>
-  <% @questions.each do |question| %>
+  <% @questions.sort{|x,y| y.vote_value <=> x.vote_value}.each do |question| %>
 	<div class='question-summary'>
 		<div class='votes-answers'>
 			<div class='votes'>
 				<div class='mini-counts'>
-					<span>0</span>
+					<span><%= question.vote_value %></span>
 				</div>
 				<div>votes</div>
 			</div>
 			<div class='answers'>
 				<div class='mini-counts'>
-					<span>0</span>
+					<span><%= question.answers.count %></span>
 				</div>
 				<div>answers</div>
 			</div>
@@ -58,8 +58,7 @@
 		</div>
 		<div class='question-summary-user'>
 			<span>asked by</span>
-			<a href=''><%= question.user %></a>
-			<!-- question.user isn't a thing? need to be able to access the user names here -->
+			<a href=''><%= question.user.name %></a>
 		</div>
 	</div>
   <% end %>
