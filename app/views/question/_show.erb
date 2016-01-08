@@ -1,6 +1,6 @@
 <div class='row col-md-12'>
   <div class ="question row col-md-12">
-    <h1><%= question.title %></h1>
+    <h1><%= @question.title %></h1>
     <div class='vote-with-arrows col-md-1'>
       <form action='/votes' method="POST">
         <input type ="hidden" name="votable_id" value="<%= @question.id %>">
@@ -10,7 +10,7 @@
       </form>
       <i class='glyphicon glyphicon-triangle-top'></i>
       <br>
-        <span><%= question.vote_value %></span>
+        <span><%= @question.vote_value %></span>
       <br>
       <i class='glyphicon glyphicon-triangle-bottom'></i>
       <form action='/votes' method="POST">
@@ -21,15 +21,15 @@
       </form>
     </div>
     <div class='question-info col-md-4'>
-      <p><%= question.text %></p>
+      <p><%= @question.text %></p>
     </div>
   </div>
 </div>
 
 <div class='user-actions row col-md-12'>
-  <p><a href='/questions/<%= question.id %>/edit'>Edit this question</a></p>
-  <p><a href='/answers/new/question/<%= question.id %>'>Answer this question</a></p>
-  <p><a href='/comments/new/question/<%= question.id %>'>Comment on this question</a></p>
+  <p><a href='/questions/<%= @question.id %>/edit'>Edit this question</a></p>
+  <p><a href='/answers/new/question/<%= @question.id %>'>Answer this question</a></p>
+  <p><a href='/comments/new/question/<%= @question.id %>'>Comment on this question</a></p>
 </div>
 
 
