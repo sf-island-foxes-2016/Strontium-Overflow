@@ -4,8 +4,10 @@
   <p><a href='/comments/new/answer/<%= answer.id %>'>Comment on this answer</a></p>
 </div>
 
-<!-- <ul class="comment_list">
-  <% answer.comments.each do |comment| %> (Not sure about this syntax)
-    <%= erb :'comment/_show', :locals => { :comment => @comment } %>
-  <% end %>
-<ul> -->
+<div class="comment_list">
+  <ul>
+    <% answer.comments.each do |comment| %>
+      <%= erb :'comment/_show', :locals => { :comment => comment } %>
+    <% end %>
+  <ul>
+</div>

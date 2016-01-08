@@ -1,9 +1,15 @@
 <%= erb :'question/_show', :locals => { :question => @question } %>
 
-<ul class="comment_list">
-  <p>Hi from comment list</p>
-  <% @question.comments.each do |comment| %>
-    <%= erb :'comment/_show', :locals => { :comment => @comment } %>
+<div class="comment_list">
+  <ul>
+    <% @question.comments.each do |comment| %>
+      <%= erb :'comment/_show', :locals => { :comment => comment } %>
+    <% end %>
+  <ul>
+</div>
+
+<ul class="answer_list">
+  <% @question.answers.each do |answer| %>
+    <%= erb :'answer/_show', :locals => { :answer => answer } %>
   <% end %>
 <ul>
-
