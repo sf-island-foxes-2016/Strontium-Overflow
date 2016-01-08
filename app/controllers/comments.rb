@@ -1,5 +1,5 @@
 get '/comments/new' do #get create form
-  erb :comment_create
+  erb :'comment/create'
 end
 
 post '/comments' do #post create form to perform create
@@ -11,7 +11,7 @@ end
 
 get '/comments/:id/edit' do # get update form
   @comment = Comment.find(params[:id])
-  erb :comment_update
+  erb :'comment/update'
 end
 
 put '/comments/:id' do # put update form to perform update
