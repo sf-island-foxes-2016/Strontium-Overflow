@@ -9,8 +9,6 @@ end
 
 get '/questions/:id' do #list one
   @question = Question.find(params[:id])
-  p @question
-  p "**"*30
   erb :'question/show'
 end
 
@@ -31,4 +29,4 @@ put '/questions/:id' do # put update form to perform update
   redirect "/questions/#{@question.id}"
 end
 
-# <%= :'question/show_one', :locals => { :question => @question } %> 
+# <%= :'question/show_one', :locals => { :question => @question } %>
