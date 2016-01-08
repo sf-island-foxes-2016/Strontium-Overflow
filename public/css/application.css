@@ -165,6 +165,10 @@ form#posts input[type='submit'] {
   padding-top: 4px;
   white-space: nowrap;
 }
-.text-center {
-  background-color: red;
+.main-page {
+  padding: 50px;
+  width: 100%;
+  background-color: #f4f4f4;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
