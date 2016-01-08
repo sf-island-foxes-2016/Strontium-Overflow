@@ -8,6 +8,10 @@
 
 <div class="comment_list">
   <ul class='individual-comment'>
+
+<div class="comment_list for_question">
+  <ul>
+
     <% @question.comments.each do |comment| %>
       <%= erb :'comment/_show', :locals => { :comment => comment } %>
     <% end %>

@@ -1,7 +1,43 @@
-<audio src="/birthday.wav" autoplay = true preload="auto" controls></audio>
+<script>
+var text="Hello Professor Falken.               Shall we play a game?             How about a nice game of global thermonuclear war?";
+var delay=50;
+var currentChar=1;
+var destination="[not defined]";
 
-<script src='https://code.responsivevoice.org/responsivevoice.js'
-responsiveVoice.speak("Happy Birthday")></script>
+function type()
+{
+  if (document.getElementById)
+  {
+    var dest=document.getElementById(destination);
+    if (dest)
+    {
+      dest.innerHTML=text.substr(0, currentChar);
+      currentChar++
+      if (currentChar>text.length)
+      {
+        currentChar=1;
+        setTimeout("type()", 5000);
+      }
+      else
+      {
+        setTimeout("type()", delay);
+      }
+    }
+  }
+}
+function startTyping(textParam, delayParam, destinationParam)
+{
+  text=textParam;
+  delay=delayParam;
+  currentChar=1;
+  destination=destinationParam;
+  type();
+}
 
-<h1>Hello Professor Falken</h1>
+</script>
+<title>JavaScript Typing Effect</title>
+
+<h1><Div ID="textDestination">...</div></h1>
+
+<script>startTyping(text, 50, "textDestination");</script>
 
