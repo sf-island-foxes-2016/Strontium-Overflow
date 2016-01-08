@@ -31,4 +31,4 @@ put '/questions/:id' do # put update form to perform update
   redirect "/questions/#{@question.id}"
 end
 
-# <%= :'question/show_one', :locals => { :question => @question } %> 
+# <%= :'question/show_one', :locals => { :question => @question } %>

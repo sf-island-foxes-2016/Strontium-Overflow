@@ -17,6 +17,7 @@ end
 
 get '/answers/:id/edit' do # get update form
   @answer = Answer.find(params[:id])
+
   erb :'answer/edit'
 end
 
