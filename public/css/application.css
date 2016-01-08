@@ -172,6 +172,9 @@ form#posts input[type='submit'] {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-.navigation-shit {
-
+.question-info {
+  padding-top: 25px;
+}
+.user-actions {
+  padding-top: 50px;
 }
