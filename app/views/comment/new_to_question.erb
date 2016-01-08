@@ -1,7 +1,9 @@
+
+
 <h1>Create a comment</h1>
 
 <form method="post" action="/answers">
-<input type="hidden" name="_method" value="post">
+  <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
   <label for="comment_text_input">
   <input id="comment_text_input" name="comment[text]" type="text" placeholder="Comment">
   <br>

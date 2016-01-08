@@ -20,7 +20,7 @@
 
 <div class='row col-md-12'>
   <div class ="question row col-md-12">
-  <h1 id='question-title'><%= question.title %></h1>
+    <h1 id='question-title'><%= @question.title %></h1>
     <div class='vote-with-arrows col-md-1'>
       <form action='/votes' method="POST">
         <input type ="hidden" name="votable_id" value="<%= @question.id %>">
@@ -41,12 +41,17 @@
       </form>
     </div>
     <div class='question-info col-md-4'>
-      <p><%= question.text %></p>
+      <p><%= @question.text %></p>
     </div>
   </div>
 </div>
 
 <div class='user-actions row col-md-12'>
+<<<<<<< HEAD
+  <p><a href='/questions/<%= @question.id %>/edit'>Edit this question</a></p>
+  <p><a href='/answers/new/question/<%= @question.id %>'>Answer this question</a></p>
+  <p><a href='/comments/new/question/<%= @question.id %>'>Comment on this question</a></p>
+=======
   <div class='edit-question'>
     <p><a href='/questions/<%= question.id %>/edit'>Edit this question</a></p>
   </div>
@@ -56,6 +61,7 @@
   <div class='comment-question'>
     <p><a href='/comments/new/question/<%= question.id %>'>Comment on this question</a></p>
   </div>
+>>>>>>> 6e34e4942c517aef2819378ea79ae8399c586f01
 </div>
 
 

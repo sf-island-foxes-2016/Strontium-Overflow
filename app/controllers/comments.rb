@@ -1,6 +1,6 @@
 get '/comments/new/question/:id' do #get create form
   @question = Question.find(params[:id])
-  erb :'comment/create'
+  erb :'comment/new_to_question'
 end
 
 post '/comments' do #post create form to perform create
