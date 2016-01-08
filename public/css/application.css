@@ -184,6 +184,10 @@ form#posts input[type='submit'] {
 .individual-comment {
   border-bottom: 1px solid #eaebec;
 }
+.entire-answer {
+  padding: 10px;
+  background-color: #f6f6f6;
+}
 
 
 

@@ -1,8 +1,35 @@
-<div class = "answer">
-  <p><%= answer.vote_value %></p>
-  <p><%= answer.text %></p>
-  <p><a href='/answers/<%= answer.id %>/edit'>Edit this answer</a></p>
-  <p><a href='/comments/new/answer/<%= answer.id %>'>Comment on this answer</a></p>
+<div class = "entire-answer row col-md-12">
+
+  <div class='vote-with-arrows col-md-2'>
+    <form action='/votes' method="POST">
+      <input type ="hidden" name="votable_id" value="<%= @question.id %>">
+      <input type="hidden" name="votable_type" value="Question">
+      <input type="hidden" name="approval" value="true">
+      <input type="submit" name="submit" value="Vote Up">
+    </form>
+    <i class='glyphicon glyphicon-triangle-top'></i>
+    <br>
+    <span><%= answer.vote_value %></span>
+    <br>
+    <i class='glyphicon glyphicon-triangle-bottom'></i>
+    <form action='/votes' method="POST">
+      <input type ="hidden" name="votable_id" value="<%= @question.id %>">
+      <input type="hidden" name="votable_type" value="Question">
+      <input type="hidden" name="approval" value="false">
+      <input type="submit" name="submit" value="Vote Down">
+    </form>
+  </div>
+
+  <div class='answer-text-actions col-md-5'>
+    <div class='answer-text'>
+      <p><%= answer.text %></p>
+    </div>
+    <div class='answer-actions'>
+      <p><a href='/answers/<%= answer.id %>/edit'>Edit this answer</a></p>
+      <p><a href='/comments/new/answer/<%= answer.id %>'>Comment on this answer</a></p>
+    </div>
+  </div>
+
 </div>
 
 <div class="comment_list for_answer">
