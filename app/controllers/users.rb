@@ -7,8 +7,9 @@ post '/users' do #post create form to perform create
     @user = User.new(params[:user])
     @user.password = params[:password]
     if @user.save!
-      "#{@user.name} with email address #{@user.email} has been successfully registered."
-      ## Alternatively, we can redirect to /questions or other page as success.
+      session[:user_id] = @user.id
+      # "#{@user.name} with email address #{@user.email} has been successfully registered."
+    redirect '/'
     else
       "Sorry, the system could not register this account."
     end
@@ -20,7 +21,7 @@ end
 
 post '/users/login' do
   user = User.find_by(email: params[:email])
-  if user.authenticate(params[:password])
+  if user.authenticate(password_hash: params[:password])
     session[:user_id] = user.id
     redirect '/questions'
   else
