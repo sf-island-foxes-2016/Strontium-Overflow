@@ -24,8 +24,12 @@
     <h1>DBC Overflow</h1>
     <nav>
       <ul>
-        <li>Sign Up</li>
-        <li>Log in</li>
+        <% if session[:user_id] %>
+        <a href = "/users/logout">Logout</a>
+        <% else %>
+        <li><a href='/users/new'>Sign Up</a></li>
+        <li><a href='/users/login'>Log in</a></li>
+        <% end %>
       </ul>
     </nav>
   </header>
