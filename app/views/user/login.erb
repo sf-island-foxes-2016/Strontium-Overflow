@@ -1,11 +1,15 @@
 <h1>Login</h1>
 
+<% if @error_true == true %>
+<p style="color:red">You entered an incorrect password or email address. Please try logging in again.</p>
+<% end %>
+
 <form method="post" action="/users/login">
   <label for="user_email_input">
-  <input id="user_email_input" name="user[email]" type="text" placeholder="Email">
+  <input name="email" type="text" placeholder="Email">
   <br>
   <label for="user_password_input">
-  <input id="user_password_input" name="user[password]" type="password" placeholder="Password">
+  <input name="password" type="password" placeholder="Password">
   <br>
   <input type="submit" value="Login">
 </form>

@@ -1,15 +1,21 @@
+
+
+
 <h1>New User</h1>
 
 <form method="post" action="/users">
 <input type="hidden" name="_method" value="post">
   <label for="user_name_input">
-  <input id="user_name_input" name="user[name]" type="text" placeholder="Name">
+  <input id="user_name_input" name="name" type="text" placeholder="Name" required title="Please enter a valid username.">
   <br>
   <label for="user_email_input">
-  <input id="user_email_input" name="user[email]" type="text" placeholder="Email">
+  <input id="user_email_input" name="email" type="text" placeholder="Email" required title="Please enter a valid email address.">
   <br>
   <label for="user_password_input">
-  <input id="user_password_input" name="user[password]" type="password" placeholder="Password">
+  <input id="user_password_input" name="password" type="password" placeholder="Password" pattern=".{5,15}" required title="Please enter a password between 5 and 15 characters.">
   <br>
   <input type="submit" value="Create a new user!">
 </form>
+
+
+
