@@ -13,6 +13,12 @@
         <span><%= question.vote_value %></span>
       <br>
       <i class='glyphicon glyphicon-triangle-bottom'></i>
+      <form action='/votes' method="POST">
+        <input type ="hidden" name="votable_id" value="<%= @question.id %>">
+        <input type="hidden" name="votable_type" value="Question">
+        <input type="hidden" name="approval" value="false">
+        <input type="submit" name="submit" value="Vote Down">
+      </form>
     </div>
     <div class='question-info col-md-4'>
       <p><%= question.text %></p>
