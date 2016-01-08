@@ -1,12 +1,41 @@
-<div class='col-md-12'>
-	<h1>Questions</h1>
-</div>
+
 <!-- <ul>
   <% @questions.each do |question| %>
   <li><a href='/questions/<%= question.id %>'><%= question.title %></a></li>
   <% end %>
 <ul>
  -->
+<div class='row text-center col-md-12'>
+  <div class='col-md-4'>
+    <i class='glyphicon glyphicon-plus'></i>
+    <h3>Increase your coding skillz.</h3>
+    <p>AAnswer questions to help out a beginner who has NO idea what they're doing.</p>
+  </div>
+
+  <div class='col-md-4'>
+    <i class='glyphicon glyphicon-random'></i>
+    <h3>Network!</h3>
+    <p>Collaborate with fellow developers, and form a community of like-minded nerds who do nothing but code!</p>
+  </div>
+
+  <div class='col-md-4'>
+    <i class='glyphicon glyphicon-send'></i>
+    <h3>Have a question?</h3>
+    <p>Send a question out into the community, get awesome answers from people who just started learning programming!</p>
+  </div>
+</div>
+
+<div class='row well well-lg col-md-12'>
+  <div class='col-md-12'>
+    <h2>Become an ABSOLUTE nerd</h2>
+    <p class='lead'>Answer questions about programming.</p>
+  </div>
+</div>
+
+<div class='col-md-12'>
+	<h1>Questions</h1>
+</div>
+
 <div class='question-list col-md-12 col-md-offset-1'>
   <% @questions.each do |question| %>
 	<div class='question-summary'>

@@ -120,6 +120,7 @@ form#posts input[type='submit'] {
 }
 
 */
+
 .question-summary {
   padding: 12px 0 10px 0;
   border-bottom: 1px solid #eaebec;
@@ -158,9 +159,12 @@ form#posts input[type='submit'] {
   font-size: 18px;
 }
 .question-summary-user {
-    float: right;
-    width: auto;
-    line-height: inherit;
-    padding-top: 4px;
-    white-space: nowrap;
+  float: right;
+  width: auto;
+  line-height: inherit;
+  padding-top: 4px;
+  white-space: nowrap;
+}
+.text-center {
+  background-color: red;
 }
