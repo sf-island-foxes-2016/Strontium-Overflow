@@ -3,6 +3,9 @@ get '/users/new' do #get create form
 end
 
 post '/users' do #post create form to perform create
+    # if params[:email] == User.find_by(email: params[:email]).email
+    #   "Sorry, this email already exists"
+    # elsif
     @user = User.new(name: params[:name], email: params[:email])
     redirect '/tal' if @user.name == "Tal"
     redirect '/tay' if @user.name == "Taylor Swift"
@@ -14,6 +17,7 @@ post '/users' do #post create form to perform create
     end
     session[:user_id] = @user.id
     redirect '/'
+  # end
 end
 
 get '/users/login' do
@@ -22,6 +26,11 @@ end
 
 get '/users/login/1' do
   @error_true = true
+  erb :'user/login'
+end
+
+get '/users/login/2' do
+  @error_no_right_to_post = true
   erb :'user/login'
 end
 

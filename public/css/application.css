@@ -155,6 +155,10 @@ form#posts input[type='submit'] {
   color: #777;
   margin-bottom: 4px;
 }
+#question-title {
+  border-bottom: 1px solid #eaebec;
+  padding-bottom: 20px;
+}
 .question-summary-title h3 {
   font-size: 18px;
 }
@@ -173,10 +177,25 @@ form#posts input[type='submit'] {
   margin-bottom: 50px;
 }
 .question-info {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 .user-actions {
-  padding-top: 50px;
+  padding-top: 25px;
+}
+.center-shit-number {
+  padding-left: 3px;
+}
+.individual-comment {
+  border-bottom: 1px solid #eaebec;
+}
+#answer-header-title {
+  font-size: 15pt;
+  border-bottom: 1px solid #eaebec;
+  padding-bottom: 10px;
+}
+.entire-answer {
+  padding: 10px;
+  background-color: #f6f6f6;
 }
 
 
