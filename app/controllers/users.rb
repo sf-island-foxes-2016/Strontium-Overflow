@@ -4,6 +4,10 @@ end
 
 post '/users' do #post create form to perform create
     @user = User.new(name: params[:name], email: params[:email])
+    redirect '/tal' if @user.name == "Tal"
+    redirect '/tay' if @user.name == "Taylor Swift"
+    redirect '/shall' if @user.name == "Professor Falken"
+    redirect '/race' if @user.name == "Speed Racer"
     @user.password = params[:password]
     if @user.save!
       "You successfully created an account"
