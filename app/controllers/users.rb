@@ -1,4 +1,3 @@
-     sAdnmSDhku.sdfM FV
 get '/users/new' do #get create form
   erb :user_create
 end
