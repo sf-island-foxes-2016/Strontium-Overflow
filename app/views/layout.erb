@@ -15,24 +15,27 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="/js/application.js"></script>
 
   <title>DBC Overflow</title>
 </head>
 <body>
-  <header>
-    <h1><a href='/'>DBC Overflow</a></h1>
-    <nav>
-      <ul>
-        <% if session[:user_id] %>
-        <a href = "/users/logout">Logout</a>
-        <% else %>
-        <li><a href='/users/new'>Sign Up</a></li>
-        <li><a href='/users/login'>Log in</a></li>
-        <% end %>
-      </ul>
-    </nav>
-  </header>
+  <div class='container'>
+    <header>
+      <h1><a href='/' class='navbar-brand'>DBC Overflow</a></h1>
+      <nav>
+        <ul class='nav navbar-nav navbar-right'>
+          <% if session[:user_id] %>
+          <a href = "/users/logout">Logout</a>
+          <% else %>
+          <li><a href='/users/new'>Sign Up</a></li>
+          <li><a href='/users/login'>Log in</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
   <%= yield %>
+  </div>
 </body>
 </html>
