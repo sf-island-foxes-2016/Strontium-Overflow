@@ -20,7 +20,7 @@ end
 
 post '/users/login' do
   user = User.find_by(params[:email])
-  if user.authenticate(params[:password])
+  if user.authenticate(params[:password_plaintext]) #plaintext added by nil to fix a bug in his work
     session[:user_id] = user.id
     redirect '/questions'
   else
