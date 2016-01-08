@@ -1,15 +1,17 @@
 get '/questions' do #list all
   @questions = Question.all
-  erb :'question/show'
+  erb :'question/index'
 end
 
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
-  erb :'question/create'
+  erb :'question/new'
 end
 
 get '/questions/:id' do #list one
   @question = Question.find(params[:id])
-  erb :'question/show_one'
+  p @question
+  p "**"*30
+  erb :'question/show'
 end
 
 post '/questions' do #post create form to perform create
@@ -20,7 +22,7 @@ end
 
 get '/questions/:id/edit' do # get update form
   @question = Question.find(params[:id])
-  erb :'question/update'
+  erb :'question/edit'
 end
 
 put '/questions/:id' do # put update form to perform update
@@ -29,3 +31,4 @@ put '/questions/:id' do # put update form to perform update
   redirect "/questions/#{@question.id}"
 end
 
+# <%= :'question/show_one', :locals => { :question => @question } %> 
