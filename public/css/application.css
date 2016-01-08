@@ -173,10 +173,16 @@ form#posts input[type='submit'] {
   margin-bottom: 50px;
 }
 .question-info {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 .user-actions {
-  padding-top: 50px;
+  padding-top: 25px;
+}
+.center-shit-number {
+  padding-left: 3px;
+}
+.individual-comment {
+  border-bottom: 1px solid #eaebec;
 }
 
 

@@ -1,15 +1,20 @@
 <%= erb :'question/_show', :locals => { :question => @question } %>
 
+<ul class="answer_list">
+  <% @question.answers.each do |answer| %>
+    <%= erb :'answer/_show', :locals => { :answer => answer } %>
+  <% end %>
+<ul>
+
+<div class="comment_list">
+  <ul class='individual-comment'>
+
 <div class="comment_list for_question">
   <ul>
+
     <% @question.comments.each do |comment| %>
       <%= erb :'comment/_show', :locals => { :comment => comment } %>
     <% end %>
   <ul>
 </div>
 
-<ul class="answer_list">
-  <% @question.answers.sort{|x,y| y.vote_value <=> x.vote_value}.each do |answer| %>
-    <%= erb :'answer/_show', :locals => { :answer => answer } %>
-  <% end %>
-<ul>
