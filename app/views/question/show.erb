@@ -1,6 +1,6 @@
 <%= erb :'question/_show', :locals => { :question => @question } %>
 
-<div class="comment_list">
+<div class="comment_list for_question">
   <ul>
     <% @question.comments.each do |comment| %>
       <%= erb :'comment/_show', :locals => { :comment => comment } %>
@@ -9,7 +9,7 @@
 </div>
 
 <ul class="answer_list">
-  <% @question.answers.each do |answer| %>
+  <% @question.answers.sort{|x,y| y.vote_value <=> x.vote_value}.each do |answer| %>
     <%= erb :'answer/_show', :locals => { :answer => answer } %>
   <% end %>
 <ul>
