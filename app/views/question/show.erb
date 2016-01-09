@@ -1,4 +1,11 @@
 <%= erb :'question/_show', :locals => { :question => @question } %>
+<div class="comment_list for_question">
+  <ul>
+    <% @question.comments.each do |comment| %>
+      <div class='individual-comments row col-md-12'><%= erb :'comment/_show', :locals => { :comment => comment } %></div>
+    <% end %>
+  <ul>
+</div>
 
 <div class='answer_list'>
   <div class='answer-header row col-md-12'>
@@ -11,14 +18,4 @@
   <ul>
 </div>
 
-<div class="comment_list">
-  <ul class='individual-comment'>
-
-<div class="comment_list for_question">
-  <ul>
-    <% @question.comments.each do |comment| %>
-      <%= erb :'comment/_show', :locals => { :comment => comment } %>
-    <% end %>
-  <ul>
-</div>
 

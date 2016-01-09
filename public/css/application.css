@@ -155,6 +155,7 @@ form#posts input[type='submit'] {
   color: #777;
   margin-bottom: 4px;
 }
+
 #question-title {
   border-bottom: 1px solid #eaebec;
   padding-bottom: 20px;
@@ -178,6 +179,7 @@ form#posts input[type='submit'] {
 }
 .question-info {
   padding-top: 10px;
+  padding-left: 100px;
 }
 .user-actions {
   padding-top: 25px;
@@ -197,7 +199,19 @@ form#posts input[type='submit'] {
   padding: 10px;
   background-color: #f6f6f6;
 }
-
+.answer-text {
+  padding-top: 20px;
+}
+.for_answer {
+  background-color: red;
+}
+.individual-comments {
+  border-bottom: 1px solid #eaebec;
+}
+.comment {
+  border-bottom: 1px solid #eaebec;
+  font-size: 9pt;
+}
 
 
 

@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class='row col-md-12'>
+<div class='row col-md-11'>
   <div class ="question row col-md-12">
     <h1 id='question-title'><%= @question.title %></h1>
     <div class='vote-with-arrows col-md-1'>
@@ -40,6 +40,7 @@
         <input type="submit" name="submit" value="Vote Down">
       </form>
     </div>
+
     <div class='question-info col-md-4'>
       <p><%= @question.text %></p>
     </div>
@@ -59,7 +60,7 @@
   <div class='comment-question'>
     <p><a href='/comments/new/question/<%= @question.id %>'>Comment on this question</a></p>
   </div>
-</div>
 
+</div>
 
 
