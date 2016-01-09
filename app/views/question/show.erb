@@ -13,7 +13,7 @@
   </div>
   <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= erb :'answer/_show', :locals => { :answer => answer } %></li>
+    <%= erb :'answer/_show', :locals => { :answer => answer } %>
   <% end %>
   <ul>
 </div>
