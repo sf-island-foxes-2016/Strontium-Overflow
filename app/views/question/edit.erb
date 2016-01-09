@@ -3,10 +3,12 @@
 <form method="post" action="/questions/<%= @question.id %>">
 <input type="hidden" name="_method" value="put">
   <label for="question_title_input">
-  <input id="question_title_input" name="questions[title]" type="text" value="<%= @question.title %>">
+  <input id="question_title_input" name="questions[title]" type="text" value="<%= @question.title %>" style="width:400px" pattern=".{5,}" required title="No title?  No dice!">
   <br>
   <label for="question_text_input">
-  <input id="question_text_input" name="question[text]" type="text" value="<%= @question.text %>">
+  <textarea id="question_text_input" name="question[text]" type="text"
+cols="92" rows="15" pattern=".{10,}" required title="Come on!  Please type a real question!"><%= @question.text %></textarea>
+
   <br>
   <input type="submit" value="Update your question!">
 </form>

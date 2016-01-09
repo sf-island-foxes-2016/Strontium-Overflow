@@ -21,6 +21,8 @@ post '/users' do #post create form to perform create
 end
 
 get '/users/login' do
+  @error_no_right_to_post = false
+  @error_true = false
   erb :'user/login'
 end
 
