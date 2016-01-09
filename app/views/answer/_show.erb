@@ -8,7 +8,7 @@
       <input type="hidden" name="approval" value="true">
       <input type="image" name="submit" src="/up-arrow.png" width='20' height='20' alt="upvote button">
     </form>
-      <span><%= answer.vote_value %></span>
+      <span class='center-shit-number'><%= answer.vote_value %></span>
     <form action='/votes' method="POST">
       <input type ="hidden" name="votable_id" value="<%= answer.id %>">
       <input type="hidden" name="votable_type" value="Answer">
