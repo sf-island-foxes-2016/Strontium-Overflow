@@ -1,0 +1,15 @@
+
+
+      <form action='/votes' method="POST">
+        <input type ="hidden" name="votable_id" value="<%= @question.id %>">
+        <input type="hidden" name="votable_type" value="Question">
+        <input type="hidden" name="approval" value="true">
+        <input type="image" name="submit" src="/up-arrow.png" width='20' height='20' alt="upvote button">
+      </form>
+        <span><%= question.vote_value %></span>
+      <form action='/votes' method="POST">
+        <input type ="hidden" name="votable_id" value="<%= @question.id %>">
+        <input type="hidden" name="votable_type" value="Question">
+        <input type="hidden" name="approval" value="false">
+        <input type="image" name="submit" src="/down-arrow.png" width='20' height='20' alt="downvote button">
+      </form>

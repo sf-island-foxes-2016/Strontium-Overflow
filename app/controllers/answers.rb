@@ -5,19 +5,14 @@ end
 
 post '/answers' do #post create form to perform create
   @answer = Answer.new(params[:answer])
+  puts params
   @answer.user_id = session[:user_id]
-  @answer.question_id = @question.id
   @answer.save
-  puts "Answer contents is #{@answer.inspect}"
-  puts "AQID is #{@answer["question_id"]}"
-  puts "AQ is #{@answer["question"]}"
-  puts "AQQID is #{@answer.question.question_id}"
   redirect "/questions/#{@answer.question_id}"
 end
 
 get '/answers/:id/edit' do # get update form
   @answer = Answer.find(params[:id])
-
   erb :'answer/edit'
 end
 
