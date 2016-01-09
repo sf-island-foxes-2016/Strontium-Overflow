@@ -1,13 +1,12 @@
 <h1>Login</h1>
 
-<% if @error_true == true %>
+<% if @error_type == true %>
 <p style="color:red">You entered an incorrect password or email address. Please try logging in again.</p>
 <% end %>
 <% if @error_no_right_to_post = true %>
-<p style="color:red">This is not your post and/or you have not logged in.  Before you may edit a post, you must login.</p><p>If you believe you reached this page in error, or want to go back, please click here<FORM><INPUT Type="button" VALUE="Go Back!" onClick="history.go(-1);return true;"></FORM></p>
+<div style="color:red"><p>This is not your post and/or you have not logged in.</p><p> Before you may edit a post, you must login.</p><p>If you believe you reached this page in error, please click below to return.</div><FORM><INPUT Type="button" VALUE="Go Back!" onClick="history.go(-1);return true;"></p></FORM><hr>
 <p>Otherwise, please login here:</p>
 <% end %>
-
 
 <form method="post" action="/users/login">
   <label for="user_email_input">
