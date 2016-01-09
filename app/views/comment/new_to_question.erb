@@ -6,7 +6,8 @@
   <input type ="hidden" name="comment[commentable_id]" value="<%= @question.id %>">
   <input type="hidden" name="comment[commentable_type]" value="Question">
   <label for="comment_text_input">
-  <input id="comment_text_input" name="comment[text]" type="text" placeholder="Comment">
+  <textarea id="comment_text_input" name="comment[text]" cols="92" rows="15" placeholder="Post your comment here!" pattern=".{10,}" required title="Come on!  Please type a real comment!"></textarea>
   <br>
   <input type="submit" value="Submit your comment!">
 </form>
+
