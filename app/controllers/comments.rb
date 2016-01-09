@@ -19,7 +19,11 @@ end
 
 get '/comments/:id/edit' do # get update form
   @comment = Comment.find(params[:id])
+  if session[:user_id] == @comment.user.id
   erb :'comment/update'
+else
+  redirect '/users/login/2'
+end
 end
 
 put '/comments/:id' do # put update form to perform update
