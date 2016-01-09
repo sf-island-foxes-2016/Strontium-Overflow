@@ -13,7 +13,11 @@ end
 
 get '/answers/:id/edit' do # get update form
   @answer = Answer.find(params[:id])
+  if session[:user_id] == @answer.user.id
   erb :'answer/edit'
+  else
+  redirect '/users/login/2'
+end
 end
 
 put '/answers/:id' do # put update form to perform update

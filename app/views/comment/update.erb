@@ -3,7 +3,7 @@
 <form method="post" action="/answers">
 <input type="hidden" name="_method" value="put">
   <label for="comment_text_input">
-  <input id="comment_text_input" name="comment[text]" type="text" placeholder="Comment">
+  <textarea id="comment_text_input" name="comment[text]" type="text" cols="92" rows="15" pattern=".{10,}" required title="Come on!  Please type a real comment!"><%= @comment.text %></textarea>
   <br>
   <input type="submit" value="Update your comment!">
 </form>
