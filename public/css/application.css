@@ -179,13 +179,12 @@ form#posts input[type='submit'] {
 }
 .question-info {
   padding-top: 10px;
-  padding-left: 100px;
 }
 .user-actions {
-  padding-top: 25px;
+  font-size: 12px;
 }
 .center-shit-number {
-  padding-left: 3px;
+  padding-left: 5px;
 }
 .individual-comment {
   border-bottom: 1px solid #eaebec;
@@ -202,6 +201,9 @@ form#posts input[type='submit'] {
 .answer-text {
   padding-top: 20px;
 }
+.answer-actions {
+  font-size: 9pt;
+}
 .for_answer {
   background-color: red;
 }
@@ -209,8 +211,10 @@ form#posts input[type='submit'] {
   border-bottom: 1px solid #eaebec;
 }
 .comment {
+  border-top: 1px solid #eaebec;
   border-bottom: 1px solid #eaebec;
-  font-size: 9pt;
+  font-size: 8pt;
+  padding-top: 10px;
 }
 
 

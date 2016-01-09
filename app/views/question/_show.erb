@@ -18,9 +18,10 @@
   </div>
 </div>
 
-<div class='row col-md-11'>
-  <div class ="question row col-md-12">
+<div class='row col-md-12'>
+  <div class ="question">
     <h1 id='question-title'><%= @question.title %></h1>
+
     <div class='vote-with-arrows col-md-1'>
     <form action='/votes' method="POST">
         <input type ="hidden" name="votable_id" value="<%= @question.id %>">
@@ -28,7 +29,7 @@
         <input type="hidden" name="approval" value="true">
         <input type="image" name="submit" src="/up-arrow.png" width='20' height='20' alt="upvote button">
       </form>
-        <span><%= question.vote_value %></span>
+        <span class='center-shit-number'><%= question.vote_value %></span>
       <form action='/votes' method="POST">
         <input type ="hidden" name="votable_id" value="<%= @question.id %>">
         <input type="hidden" name="votable_type" value="Question">
@@ -37,24 +38,23 @@
       </form>
     </div>
 
-    <div class='question-info col-md-4'>
+  <div class='question-info col-md-7'>
       <p><%= @question.text %></p>
     </div>
   </div>
-</div>
 
-<div class='user-actions row col-md-12'>
 
-  <div class='edit-question'>
-    <p><a href='/questions/<%= @question.id %>/edit'>Edit this question</a></p>
+  <div class='user-actions col-md-4'>
+    <div class='edit-question'>
+      <p><a href='/questions/<%= @question.id %>/edit'>Edit this question</a></p>
+    </div>
+    <div class='answer-question'>
+      <p><a href='/answers/new/question/<%= @question.id %>'>Answer this question</a></p>
+    </div>
+    <div class='comment-question'>
+      <p><a href='/comments/new/question/<%= @question.id %>'>Comment on this question</a></p>
+    </div>
   </div>
-  <div class='answer-question'>
-    <p><a href='/answers/new/question/<%= @question.id %>'>Answer this question</a></p>
-  </div>
-  <div class='comment-question'>
-    <p><a href='/comments/new/question/<%= @question.id %>'>Comment on this question</a></p>
-  </div>
-
 </div>
 
 

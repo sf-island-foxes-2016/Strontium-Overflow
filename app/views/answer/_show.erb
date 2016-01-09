@@ -1,7 +1,7 @@
 
 <div class = "entire-answer row col-md-12">
 
-  <div class='vote-with-arrows col-md-2'>
+  <div class='vote-with-arrows col-md-1'>
     <form action='/votes' method="POST">
       <input type ="hidden" name="votable_id" value="<%= answer.id %>">
       <input type="hidden" name="votable_type" value="Answer">
@@ -18,10 +18,10 @@
   </div>
 
   <div class='answer-text-actions'>
-    <div class='answer-text col-md-5'>
+    <div class='answer-text col-md-7'>
       <p><%= answer.text %></p>
     </div>
-    <div class='answer-actions col-md-2'>
+    <div class='answer-actions col-md-4'>
       <p><a href='/answers/<%= answer.id %>/edit'>Edit this answer</a></p>
       <p><a href='/comments/new/answer/<%= answer.id %>'>Comment on this answer</a></p>
     </div>
