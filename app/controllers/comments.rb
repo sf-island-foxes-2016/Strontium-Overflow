@@ -22,6 +22,7 @@ get '/comments/:id/edit' do # get update form
   if session[:user_id] == @comment.user.id
   erb :'comment/update'
 else
+  store_return_to
   redirect '/users/login/2'
 end
 end

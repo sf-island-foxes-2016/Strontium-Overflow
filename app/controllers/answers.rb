@@ -16,6 +16,7 @@ get '/answers/:id/edit' do # get update form
   if session[:user_id] == @answer.user.id
   erb :'answer/edit'
   else
+  store_return_to
   redirect '/users/login/2'
 end
 end

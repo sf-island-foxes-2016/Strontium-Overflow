@@ -26,7 +26,7 @@ get '/users/login' do
   erb :'user/login'
 end
 
-get '/users/login/1' do
+get '/users/login/:id' do
   @error_true = true
   erb :'user/login'
 end
@@ -38,14 +38,30 @@ end
 
 post '/users/login' do
   user = User.find_by(email: params[:email])
-  if user && user.password == (params[:password])
+  if user && user.password == (params[:password]) && params[:error_variable] == "redirect"
     session[:user_id] = user.id
     "You are logged in."
-    redirect '/questions'
+    # p session[:return_to]
+    redirect session[:return_to]
+  elsif user && user.password == (params[:password]) && params[:error_variable] == ""
+    session[:user_id] = user.id
+    redirect 'questions'
   else
     redirect '/users/login/1'
   end
 end
+
+# post '/users/login/1' do
+#   user = User.find_by(email: params[:email])
+#   if user && user.password == (params[:password])
+#     session[:user_id] = user.id
+#     "You are logged in."
+#     # p session[:return_to]
+#     redirect 'questions'
+#   else
+#     redirect '/users/login/1'
+#   end
+# end
 
 get '/users/logout' do
   redirect '/users/login' unless session[:user_id]

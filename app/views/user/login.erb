@@ -8,6 +8,7 @@
 <% end %>
 
 <form method="post" action="/users/login">
+  <input type="hidden" name="error_variable" value="<% if @error_true || @error_no_right_to_post %>redirect<% end %>" />
   <label for="user_email_input">
   <input name="email" type="text" placeholder="Email">
   <br>
