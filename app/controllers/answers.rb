@@ -1,6 +1,12 @@
 get '/answers/new/question/:id' do #get create form
   @question = Question.find(params[:id])
+  if session[:user_id] == nil
+    store_return_to
+    redirect '/users/login/1'
+  else
+    @user_id = session[:user_id]
   erb :'answer/new'
+end
 end
 
 post '/answers' do #post create form to perform create
