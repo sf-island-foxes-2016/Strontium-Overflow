@@ -1,6 +1,12 @@
 get '/comments/new/question/:id' do #get create form
   @question = Question.find(params[:id])
+  if session[:user_id] == nil
+    store_return_to
+    redirect '/users/login/1'
+    else
+    @user_id = session[:user_id]
   erb :'comment/new_to_question'
+end
 end
 
 get '/comments/new/answer/:id' do #get create form
