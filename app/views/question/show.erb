@@ -12,7 +12,7 @@
     <h3 id='answer-header-title'><%= @question.answers.count %> Answers</h3>
   </div>
   <ul>
-  <% @question.answers.each do |answer| %>
+  <% @question.answers.each.sort{|x,y| y.vote_value <=> x.vote_value}.each do |answer| %>
     <%= erb :'answer/_show', :locals => { :answer => answer } %>
   <% end %>
   <ul>

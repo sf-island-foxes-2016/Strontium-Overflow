@@ -8,14 +8,21 @@ post '/votes' do #post perform create or replace vote (no point in update since 
     approval: params[:approval],
     user_id: @user_id
     )
-  @vote.save unless Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type)
+  a = Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type)
+    if a != nil
+      a.destroy
+    @vote.save
+  #
+   # || Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id).votable_type == @vote.votable_type
 
   pathnum = @vote.votable_id
     if @vote.votable_type == "Answer"
       ans = Answer.find(pathnum)
       pathnum = ans.question.id
-  end
+    end
 
-  redirect "/questions/#{pathnum}?#{extra_info}"
+  redirect "/questions/#{pathnum}"
 end
+end
+
 

@@ -4,9 +4,13 @@ get '/questions' do #list all
 end
 
 get '/questions/new' do #get create form (must precede the /:id route which will catch all)
-  redirect '/users/login/1' unless session[:user_id]
+  if session[:user_id] == nil
+    store_return_to
+    redirect '/users/login/1'
+  else
   @user_id = session[:user_id]
   erb :'question/new'
+end
 end
 
 post '/questions/new' do
