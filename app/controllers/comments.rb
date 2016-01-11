@@ -12,6 +12,7 @@ post '/comments' do #post create form to perform create
   @comment = Comment.new(params[:comment])
   @comment.user_id = session[:user_id]
   @comment.save
+  redirect '/shall' if @comment.text.include?("game")
   redirect "/questions/#{@comment.commentable_id}" if @comment.commentable_type == "Question"
   puts @comment.inspect
   redirect "/questions/#{Answer.find(@comment.commentable_id).question_id}"
