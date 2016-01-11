@@ -5,7 +5,13 @@ end
 
 get '/comments/new/answer/:id' do #get create form
   @answer = Answer.find(params[:id])
+  if session[:user_id] == nil
+    store_return_to
+    redirect '/users/login/1'
+    else
+    @user_id = session[:user_id]
   erb :'comment/new_to_answer'
+end
 end
 
 post '/comments' do #post create form to perform create
