@@ -8,10 +8,12 @@ post '/votes' do #post perform create or replace vote (no point in update since 
     approval: params[:approval],
     user_id: @user_id
     )
-  a = Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type)
-    if a != nil
-      a.destroy
-    @vote.save
+  # if Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type) == nil
+  #     @vote.save
+  #   elsif Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type) != nil
+  #     Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id, votable_type: @vote.votable_type).destroy
+  #
+  @vote.save
   #
    # || Vote.find_by(user_id: @user_id, votable_id: @vote.votable_id).votable_type == @vote.votable_type
 
@@ -22,7 +24,6 @@ post '/votes' do #post perform create or replace vote (no point in update since 
     end
 
   redirect "/questions/#{pathnum}"
-end
 end
 
 
