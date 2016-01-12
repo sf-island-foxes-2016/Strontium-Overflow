@@ -53,14 +53,21 @@ get '/users/logout' do
   redirect '/'
 end
 
-get '/users/:id/edit' do # get update form
-  redirect '/users/login' unless session[:user_id]
-  # need id via params
-  erb :'user/update'
+# get '/users/:id/edit' do # get update form
+#   redirect '/users/login' unless session[:user_id]
+#   # need id via params
+#   erb :'user/update'
+# end
+
+get '/users/:id' do # put update form to perform update
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    @posts = Post.where(user_id: @user.id)
+    @comments = Comment.where(user_id: @user.id)
+  erb :'/user/user_info'
+  else
+    redirect '/'
 end
-
-put '/users/:id' do # put update form to perform update
-
 end
 
 delete '/users/:id' do # delete
