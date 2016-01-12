@@ -7,9 +7,6 @@ post '/users' do #post create form to perform create
     #   "Sorry, this email already exists"
     # elsif
     @user = User.new(name: params[:name], email: params[:email])
-    redirect '/tal' if @user.name[0..2] == "Tal"
-    redirect '/tay' if @user.name == "Taylor Swift"
-    redirect '/race' if @user.name == "Speed Racer"
     @user.password = params[:password]
     if @user.save!
       "You successfully created an account"
@@ -20,8 +17,8 @@ post '/users' do #post create form to perform create
 end
 
 get '/users/login' do
-  @error_no_right_to_post = false
-  @error_true = false
+  # @error_no_right_to_post = false
+  # @error_true = false
   erb :'user/login'
 end
 
@@ -37,30 +34,18 @@ end
 
 post '/users/login' do
   user = User.find_by(email: params[:email])
-  if user && user.password == (params[:password]) && params[:error_variable] == "redirect"
+  if user && user.password == (params[:password])
     session[:user_id] = user.id
     "You are logged in."
     # p session[:return_to]
-    redirect session[:return_to]
-  elsif user && user.password == (params[:password]) && params[:error_variable] == ""
+    redirect '/'
+  elsif user && user.password == (params[:password])
     session[:user_id] = user.id
-    redirect 'questions'
+    redirect '/'
   else
-    redirect '/users/login/1'
+    redirect '/users/login'
   end
 end
-
-# post '/users/login/1' do
-#   user = User.find_by(email: params[:email])
-#   if user && user.password == (params[:password])
-#     session[:user_id] = user.id
-#     "You are logged in."
-#     # p session[:return_to]
-#     redirect 'questions'
-#   else
-#     redirect '/users/login/1'
-#   end
-# end
 
 get '/users/logout' do
   redirect '/users/login' unless session[:user_id]

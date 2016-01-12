@@ -1,0 +1,16 @@
+
+<div class="walter_div">
+  <% @posts.each do |post| %>
+  <text class="title"><a href="<%= post.url %>"><%= post.title %></a></text>
+  <text class="second_line">( <%= post.url %> )</text>
+  <br>
+  <p class="second_line">XXX points by <%= post.user.name %><%= post.updated_at.hour - Time.now.hour %> hours ago | <a href="posts/<%= post.id %>"><%= post.comments.count %> comments</a></p>
+  <hr>
+<% end %>
+
+</div>
+
+
+
+
+

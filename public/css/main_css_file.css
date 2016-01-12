@@ -1,0 +1,13 @@
+body  { font-family:Verdana, Geneva, sans-serif; font-size:10pt; color:#828282; }
+td    { font-family:Verdana, Geneva, sans-serif; font-size:10pt; color:#828282; }
+
+.walter_div { position: relative;
+              left: 8%;
+              background-color: #f6f6ef;
+              width: 84%;}
+
+.title { color: black;}
+.second_line { font-size: .75em;}
+.comment_text {font-size: 1em;
+                color: black;
+                font-family: Arial}

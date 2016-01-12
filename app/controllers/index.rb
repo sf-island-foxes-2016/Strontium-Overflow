@@ -1,5 +1,5 @@
 get '/' do
-  redirect '/questions'
+  redirect '/posts'
 end
 
 get '/session-viewer' do

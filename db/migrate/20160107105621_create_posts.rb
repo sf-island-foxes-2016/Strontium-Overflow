@@ -1,8 +1,8 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreatePosts < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
+    create_table :posts do |t|
       t.string :title
-      t.string :text
+      t.string :url
       t.belongs_to :user
 
       t.timestamps(null: false)

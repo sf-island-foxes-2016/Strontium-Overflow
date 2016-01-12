@@ -1,0 +1,32 @@
+<table>
+<div class="walter_div">
+<text class="title"><%= @post.title %></text>
+  <text class="second_line">( <%= @post.url %> )</text>
+  <br>
+  <p class="second_line">XXX points by <%= @post.user.name %> <%= @post.updated_at.hour - Time.now.hour %> hours ago | <%= @post.comments.count %> comments</p>
+  <hr>
+  <form method="post" action="/comments">
+  <input type ="hidden" name="comment[post_id]" value="<%= @post.id %>">
+  <textarea id="comment_text_input" name="comment[text]" type="text" cols="35"
+  rows="5" placeholder="Post your answer here!" pattern=".{10,}" required title="Come on!  Please type a real answer!"></textarea><br>
+  <input type="submit" value="add comment">
+    <br>
+    <br>
+    <br><br>
+  </form>
+</div>
+</table>
+<table>
+<div class="walter_div">
+<% @post.comments.each do |comment| %>
+<p class="second_line"><%= comment.user.name %> <%= comment.updated_at.hour - Time.now.hour %> hours ago </p>
+  <p class="comment_text">
+  <%= comment.text %>
+  </p>
+  <% end %>
+</div>
+</table>
+
+
+
+

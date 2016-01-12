@@ -1,0 +1,12 @@
+
+<div class="walter_div">
+<h1>Create a comment</h1>
+
+<form method="post" action="/comments">
+  <input type ="hidden" name="comment[post_id]" value="<%= @post.id %>">
+  <textarea id="comment_text_input" name="comment[text]" type="text" cols="92"
+  rows="15" placeholder="Post your answer here!" pattern=".{10,}" required title="Come on!  Please type a real answer!"></textarea>
+  <br>
+  <input type="submit" value="Submit your comment!">
+</form>
+</div>
